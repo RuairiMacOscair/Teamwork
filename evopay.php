@@ -9,7 +9,7 @@
  */
 
 class evopay extends PaymentModule {
-
+ 
     private $_html = '';
     private $_postErrors = array();
 
