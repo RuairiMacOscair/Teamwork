@@ -1,0 +1,1 @@
+<p>{l s='Your order on' mod='evopay'} <span class="bold">{$shop_name}</span> {l s='is complete.' mod='evopay'}</p><p>{l s='You have chosen the bank card method.' mod='evopay'}</p>
