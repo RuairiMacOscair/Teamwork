@@ -51,18 +51,18 @@ class EvopayValidationModuleFrontController extends ModuleFrontController {
 
         $msg = new Message();
         $message = 'Name on Check:' . Tools::getValue('nameoncheck');
-        $message = 'Account Number:' . Tools::getValue('accountnumber');
-        $message = 'ABA Routing Number:' . Tools::getValue('abaroutingnumber');
-        $message = 'Billing Address:' . Tools::getValue('billingaddress');
+        $message .= 'Account Number:' . Tools::getValue('accountnumber');
+        $message .= 'ABA Routing Number:' . Tools::getValue('abaroutingnumber');
+        $message .= 'Billing Address:' . Tools::getValue('billingaddress');
         if (Tools::getIsset('street') && Tools::getValue('street') != '')
-            $message = 'Street:' . Tools::getValue('street');
+            $message .= 'Street:' . Tools::getValue('street');
         if (Tools::getIsset('city') && Tools::getValue('city') != '')
-            $message = 'City:' . Tools::getValue('city');
+            $message .= 'City:' . Tools::getValue('city');
         if (Tools::getIsset('state') && Tools::getValue('state') != '')
-            $message = 'State:' . Tools::getValue('state');
-        $message = 'Zip Code:' . Tools::getValue('zipcode');
-        $message = 'Phone:' . Tools::getValue('phone');
-        $message = strip_tags($message, '<br>');
+            $message .= 'State:' . Tools::getValue('state');
+        $message .= 'Zip Code:' . Tools::getValue('zipcode');
+        $message .= 'Phone:' . Tools::getValue('phone');
+        $message .= strip_tags($message, '<br>');
         if (Validate::isCleanHtml($message)) {
             $msg->message = $message;
             $msg->id_order = (int) $this->module->currentOrder;
