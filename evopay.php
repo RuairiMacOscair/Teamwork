@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Module Evo pay for PrestaShop
  * Fully Remasterized by HAMDI BAKLOUTI for Prestashop 1.5 & 1.6 versions - 21/03/2017
@@ -7,9 +8,8 @@
  * Based on the original script of HAMDI BAKLOUTI
  * email: bakloutihamdi@gmail.com
  */
-
 class evopay extends PaymentModule {
- 
+
     private $_html = '';
     private $_postErrors = array();
 
@@ -20,14 +20,14 @@ class evopay extends PaymentModule {
         $this->version = '1.0.0';
         $this->currencies = true;
         $this->currencies_mode = 'radio';
-	$this->controllers = array('payment', 'validation');
+        $this->controllers = array('payment', 'validation');
         $this->bootstrap = true;
         parent::__construct();
         /* The parent construct is required for translations */
         $this->page = basename(__FILE__, '.php');
         $this->displayName = $this->l('Evo pay');
         $this->description = $this->l('Evo pay');
-        
+
         $this->confirmUninstall = $this->l('Are you sure you want to delete your details ?');
         $this->orderPaymentName = $this->l('Evo pay'); //The name of the means of payment which will appear in the list of orders
         $this->orderPaymentNameTest = $this->l('Evo pay'); //The name of the means of payment which will appear in the list of orders
@@ -55,13 +55,14 @@ class evopay extends PaymentModule {
     public function getContent() {
         
     }
-    
+
     public function hookPayment($params) {
         $this->smarty->assign(array(
-			'_path' => $this->_path,
-		));
+            '_path' => $this->_path,
+        ));
         return $this->display(__FILE__, 'evopay_payment.tpl');
     }
+
 
 }
 
